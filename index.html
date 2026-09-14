@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arumatul Ulum | Kursus Bahasa Arab & Baca Kitab Kuning</title>
+    <meta name="description" content="Lembaga kursus bahasa Arab & mahir baca kitab kuning terpercaya. Belajar Nahwu, Shorof, dan Mufrodat dari tingkat dasar hingga mahir secara online & offline.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        brand: {
+                            green: '#0F766E',      /* Deep Emerald/Teal-Green */
+                            accent: '#10B981',     /* Bright Green */
+                            dark: '#111827',       /* Rich Black */
+                            subtle: '#1F2937',     /* Off Black */
+                            light: '#F9FAFB',      /* Off White */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        arabic: ['Amiri', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .arabic-text {
+            font-family: 'Amiri', serif;
+        }
+        .bg-pattern {
+            background-color: #ffffff;
+            background-image: radial-gradient(#10b981 0.5px, transparent 0.5px), radial-gradient(#10b981 0.5px, #ffffff 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-opacity: 0.05;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Sticky Header Navbar -->
+    <header id="navbar" class="sticky top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 bg-gradient-to-br from-brand-dark to-brand-green rounded-xl flex items-center justify-center text-white text-xl font-bold shadow-md shadow-emerald-900/10 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid font-arabic text-2xl leading-none">ع</i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-tight text-brand-dark leading-tight">
+                            Arumatul <span class="text-emerald-600">Ulum</span>
+                        </span>
+                        <span class="arabic-text text-xs text-gray-500 tracking-wider">عَرُمَةُ العُلُوْم</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm text-gray-700">
+                    <a href="#beranda" class="hover:text-emerald-600 transition-colors py-1 border-b-2 border-transparent hover:border-emerald-600">Beranda</a>
+                    <a href="#keunggulan" class="hover:text-emerald-600 transition-colors py-1 border-b-2 border-transparent hover:border-emerald-600">Keunggulan</a>
+                    <a href="#program" class="hover:text-emerald-600 transition-colors py-1 border-b-2 border-transparent hover:border-emerald-600">Program Kursus</a>
+                    <a href="#kurikulum" class="hover:text-emerald-600 transition-colors py-1 border-b-2 border-transparent hover:border-emerald-600">Kurikulum</a>
+                    <a href="#biaya" class="hover:text-emerald-600 transition-colors py-1 border-b-2 border-transparent hover:border-emerald-600">Biaya Paket</a>
+                    <a href="#faq" class="hover:text-emerald-600 transition-colors py-1 border-b-2 border-transparent hover:border-emerald-600">FAQ</a>
+                </nav>
+
+                <!-- CTA Button Desktop -->
+                <div class="hidden md:flex items-center gap-4">
+                    <button onclick="openModal('Umum')" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2.5 rounded-xl shadow-md shadow-emerald-600/20 hover:shadow-lg hover:shadow-emerald-600/30 transition-all flex items-center gap-2 group">
+                        <span>Daftar Sekarang</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Toggle Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-gray-700 hover:text-emerald-600 focus:outline-none p-2 rounded-lg" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="mobile-link block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Beranda</a>
+            <a href="#keunggulan" class="mobile-link block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Keunggulan</a>
+            <a href="#program" class="mobile-link block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Program Kursus</a>
+            <a href="#kurikulum" class="mobile-link block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Kurikulum</a>
+            <a href="#biaya" class="mobile-link block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Biaya Paket</a>
+            <a href="#faq" class="mobile-link block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">FAQ</a>
+            <div class="pt-2">
+                <button onclick="openModal('Umum')" class="w-full bg-emerald-600 text-white font-semibold py-3 rounded-xl shadow text-center flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Daftar Kursus Sekarang</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="relative pt-8 pb-20 md:pt-16 md:pb-28 overflow-hidden bg-gradient-to-b from-emerald-50/60 via-white to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full shadow-sm">
+                        <span class="flex h-2 w-2 rounded-full bg-emerald-600 animate-ping"></span>
+                        <i class="fa-solid fa-book-quran"></i> Pendaftaran Gelombang Baru Telah Dibuka
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-[1.15] tracking-tight">
+                        Kuasai Bahasa Arab & Mahir <span class="text-emerald-600 underline decoration-emerald-300 decoration-wavy decoration-2">Membaca Kitab Kuning</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                        Metode sistematis, mudah dipahami, dan teruji untuk mendalami Nahwu, Shorof, serta literatur Islam klasik dari tingkat dasar hingga mahir bersama <strong class="text-brand-dark font-semibold">Arumatul Ulum</strong>.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <button onclick="openModal('Hero Section')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-emerald-600/30 hover:shadow-emerald-600/40 transition-all text-base flex items-center justify-center gap-3 group">
+                            <span>Daftar Kursus Sekarang</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Admin%20Arumatul%20Ulum,%20saya%20ingin%20konsultasi%20mengenai%20program%20kursus." target="_blank" class="w-full sm:w-auto bg-white hover:bg-gray-50 text-brand-dark font-semibold px-7 py-4 rounded-xl border border-gray-300 hover:border-gray-400 shadow-sm transition-all text-base flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-emerald-600 text-xl"></i>
+                            <span>Konsultasi WhatsApp</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="pt-6 border-t border-gray-200/80 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brand-dark">1,200+</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">Alumni Santri</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brand-dark">98%</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">Tingkat Kepuasan</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brand-dark">15+</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">Pengajar Berpengalaman</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Mockup -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Background Glow Effect -->
+                        <div class="absolute -inset-4 bg-gradient-to-r from-emerald-500 to-teal-700 rounded-3xl blur-2xl opacity-20 -z-10"></div>
+                        
+                        <!-- Main Frame Card -->
+                        <div class="bg-brand-dark text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-gray-800 relative overflow-hidden">
+                            <!-- Geometric Accent Pattern Overlay -->
+                            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-emerald-600/20 rounded-full blur-xl pointer-events-none"></div>
+
+                            <div class="flex items-center justify-between pb-6 border-b border-gray-800">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-emerald-600/20 text-emerald-400 flex items-center justify-center font-bold">
+                                        <i class="fa-solid fa-graduation-cap"></i>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-sm font-semibold text-gray-200">Kelas Pembelajaran</h2>
+                                        <p class="text-xs text-emerald-400 font-mono">Status: Pendaftaran Buka</p>
+                                    </div>
+                                </div>
+                                <span class="bg-emerald-900/60 text-emerald-300 text-xs px-2.5 py-1 rounded-md border border-emerald-700/50">Online & Offline</span>
+                            </div>
+
+                            <!-- Calligraphy Highlight Card -->
+                            <div class="my-6 p-6 bg-gray-900/90 rounded-2xl border border-gray-800 text-center">
+                                <p class="arabic-text text-3xl sm:text-4xl text-emerald-400 mb-2 leading-relaxed font-bold">
+                                    بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
+                                </p>
+                                <p class="arabic-text text-xl text-gray-300">
+                                    مَنْ سَلَكَ طَرِيْقًا يَلْتَمِسُ فِيْهِ عِلْمًا سَهَّلَ اللهُ لَهُ طَرِيْقًا إِلَى الْجَنَّةِ
+                                </p>
+                                <p class="text-xs text-gray-400 italic mt-3">
+                                    "Barangsiapa menempuh jalan untuk mencari ilmu, Allah mudahkan jalannya menuju surga." (HR. Muslim)
+                                </p>
+                            </div>
+
+                            <!-- Course Highlights Mini-List -->
+                            <div class="space-y-3 text-sm">
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-gray-800/80">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                        <span>Nahwu & Shorof Practical</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Dasar - Mahir</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-900/60 border border-gray-800/80">
+                                    <div class="flex items-center gap-3">
+                                        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                        <span>Bimbingan Baca Kitab Gundul</span>
+                                    </div>
+                                    <span class="text-xs text-gray-400">Interaktif</span>
+                                </div>
+                            </div>
+
+                            <!-- Card Bottom Note -->
+                            <div class="mt-6 pt-4 border-t border-gray-800 flex items-center justify-between text-xs text-gray-400">
+                                <span class="flex items-center gap-2">
+                                    <i class="fa-solid fa-users text-emerald-400"></i> Kuota Terbatas tiap Angkatan
+                                </span>
+                                <span class="text-emerald-400 font-semibold">Arumatul Ulum</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Keunggulan (Why Choose Us) -->
+    <section id="keunggulan" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">MENGAPA ARUMATUL ULUM?</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">Keunggulan Belajar Bahasa Arab & Baca Kitab Bersama Kami</p>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">Dirancang khusus untuk memudahkan pemula maupun yang ingin mendalami kajian Islam secara komprehensif.</p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-gray-50/70 p-8 rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-sitemap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Kurikulum Terstruktur</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Materi disusun secara bertahap mulai dari pengenalan kaidah dasar Nahwu, Shorof, hingga aplikasi praktis membaca kitab klasik.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-gray-50/70 p-8 rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-user-tie font-semibold"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Pengajar Berpengalaman</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Dibimbing oleh ustadz & ustadzah lulusan universitas Islam terkemuka dan alumni pesantren yang kompeten di bidangnya.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-gray-50/70 p-8 rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Metode Praktis & Cepat</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Fokus pada pemahaman pola dasar kalimat, analisis i'rab sederhana, serta rumus praktis membaca teks tanpa harakat.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-gray-50/70 p-8 rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-laptop-house"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Kelas Fleksibel (Online/Offline)</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Tersedia pilihan kelas tatap muka langsung maupun interaktif via Zoom dengan rekaman siaran ulang setiap sesi.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-gray-50/70 p-8 rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Grup Diskusi & Evaluasi</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Pendampingan intensif melalui grup WhatsApp/Telegram khusus untuk tanya jawab materi dan kuis evaluasi mingguan.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-gray-50/70 p-8 rounded-2xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-colors shadow-sm">
+                        <i class="fa-solid fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark mb-3">Modul & Sertifikat Syahadah</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">Setiap peserta mendapatkan buku modul fisik/digital eksklusif serta sertifikat resmi dari Arumatul Ulum setelah kelulusan.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Program Kursus & Kurikulum -->
+    <section id="program" class="py-20 bg-gray-50/50">
+        <div id="kurikulum" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">PROGRAM UNGGULAN</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">Pilihan Program Kursus Sesuai Kebutuhan Anda</p>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">Setiap jenjang disesuaikan dengan tingkat kemampuan awal peserta agar belajar lebih efektif.</p>
+            </div>
+
+            <!-- Program Cards Container -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Program 1 -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Tingkat Dasar</span>
+                            <span class="text-xs text-gray-500 font-mono"><i class="fa-regular fa-clock mr-1"></i> 2 Bulan (16 Sesi)</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Bahasa Arab Dasar (Mubtadi')</h3>
+                        <p class="text-gray-600 text-sm mb-6">Dirancang khusus untuk pemula tanpa latar belakang bahasa Arab sebelumnya.</p>
+                        
+                        <div class="border-t border-gray-100 pt-6 mb-6 space-y-3 text-sm">
+                            <p class="font-bold text-brand-dark mb-2">Fokus & Kurikulum Main Topic:</p>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Pengenalan Kosakata Harian (Mufrodat Tematik)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Struktur Kalimat Dasar (Jumlah Ismiyyah & Fi'liyyah)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Pola Perubahan Kata Kerja Sederhana</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Latihan Percakapan & Membaca Teks Berharakat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="openModal('Program Bahasa Arab Dasar (Mubtadi)')" class="w-full bg-brand-dark hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
+                        Pilih Program Ini
+                    </button>
+                </div>
+
+                <!-- Program 2 (Featured) -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-emerald-500 shadow-xl relative flex flex-col justify-between transform lg:-translate-y-2">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow">
+                        Paling Populer
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-4 mt-2">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Tingkat Menengah</span>
+                            <span class="text-xs text-gray-500 font-mono"><i class="fa-regular fa-clock mr-1"></i> 3 Bulan (24 Sesi)</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Pendalaman Nahwu & Shorof</h3>
+                        <p class="text-gray-600 text-sm mb-6">Mendalami kaidah tata bahasa Arab secara menyeluruh dan terstruktur.</p>
+                        
+                        <div class="border-t border-gray-100 pt-6 mb-6 space-y-3 text-sm">
+                            <p class="font-bold text-brand-dark mb-2">Fokus & Kurikulum Main Topic:</p>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Bedah Kaidah Morfologi Kata (Mizan Shorfi)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Analisis Sintaksis & Kedudukan Kata (I'rab)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Kajian Kitab Matan Al-Ajurrumiyyah / Jurumiyah</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Penerapan Rumus Cepat Membaca Teks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="openModal('Pendalaman Nahwu & Shorof')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition-colors shadow-md shadow-emerald-600/20 text-sm">
+                        Pilih Program Ini
+                    </button>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Tingkat Mahir</span>
+                            <span class="text-xs text-gray-500 font-mono"><i class="fa-regular fa-clock mr-1"></i> 3 Bulan (24 Sesi)</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-brand-dark mb-2">Praktik Baca Kitab (Tathbiq)</h3>
+                        <p class="text-gray-600 text-sm mb-6">Praktek langsung membaca dan memahami terjemah kitab gundul (tanpa harakat).</p>
+                        
+                        <div class="border-t border-gray-100 pt-6 mb-6 space-y-3 text-sm">
+                            <p class="font-bold text-brand-dark mb-2">Fokus & Kurikulum Main Topic:</p>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Praktek Membaca Kitab Fiqih / Hadits (Fathul Qorib)</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Teknik Penerjemahan & Pemahaman Konteks</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Diskusi Istilah-istilah Fiqih & Literatur Klasik</span>
+                            </div>
+                            <div class="flex items-start gap-2 text-gray-600">
+                                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                                <span>Ujian Kelulusan Membaca Kitab Mandiri</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="openModal('Praktik Baca Kitab (Tathbiq)')" class="w-full bg-brand-dark hover:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition-colors text-sm">
+                        Pilih Program Ini
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Biaya & Paket Pendaftaran (Pricing Table) -->
+    <section id="biaya" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">BIAYA & INVESTASI BELAJAR</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">Pilihan Paket Pendaftaran Transparan</p>
+                <p class="text-gray-600 mt-4 text-base sm:text-lg">Investasikan waktu untuk mempelajari ilmu agama dan bahasa Al-Qur'an dengan biaya terjangkau.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                
+                <!-- Pricing Card 1: Regular Online -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200 flex flex-col justify-between hover:shadow-lg transition-shadow">
+                    <div>
+                        <div class="text-center pb-6 border-b border-gray-200">
+                            <h3 class="text-xl font-bold text-brand-dark mb-1">Paket Regular Online</h3>
+                            <p class="text-xs text-gray-500 mb-4">Kelas Grup via Zoom Interactive</p>
+                            <div class="flex items-baseline justify-center gap-1">
+                                <span class="text-xs font-semibold text-gray-500">Rp</span>
+                                <span class="text-4xl font-extrabold text-brand-dark">299.000</span>
+                                <span class="text-xs text-gray-500">/program</span>
+                            </div>
+                        </div>
+
+                        <ul class="py-6 space-y-3 text-sm text-gray-600">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Akses Kelas Live Zoom (2x seminggu)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>E-Book Modul & Materi PDF</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Akses Rekaman Pembelajaran</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Grup Diskusi WhatsApp</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>E-Sertifikat Kelulusan</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Paket Regular Online')" class="w-full bg-white hover:bg-brand-dark hover:text-white text-brand-dark font-bold py-3.5 rounded-xl border border-gray-300 transition-all text-sm">
+                        Daftar Paket Regular
+                    </button>
+                </div>
+
+                <!-- Pricing Card 2: Intensive / Private Online (Featured) -->
+                <div class="bg-brand-dark text-white rounded-3xl p-8 border-2 border-emerald-500 flex flex-col justify-between shadow-2xl relative">
+                    <div class="absolute -top-3.5 right-6 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-md uppercase">
+                        Rekomendasi
+                    </div>
+                    <div>
+                        <div class="text-center pb-6 border-b border-gray-800">
+                            <h3 class="text-xl font-bold text-white mb-1">Paket Intensive Private</h3>
+                            <p class="text-xs text-gray-400 mb-4">Kelas 1-on-1 / Kelompok Kecil</p>
+                            <div class="flex items-baseline justify-center gap-1">
+                                <span class="text-xs font-semibold text-gray-400">Rp</span>
+                                <span class="text-4xl font-extrabold text-emerald-400">699.000</span>
+                                <span class="text-xs text-gray-400">/program</span>
+                            </div>
+                        </div>
+
+                        <ul class="py-6 space-y-3 text-sm text-gray-300">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Semua Fasilitas Paket Regular</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Bimbingan Private 1-on-1 / Privat Group</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Jadwal Bebas & Fleksibel</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Modul Cetak / Cetakan Fisik dikirim</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-400"></i>
+                                <span>Konsultasi Bebas di Luar Jam Kelas</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Paket Intensive Private')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition-all shadow-md shadow-emerald-600/30 text-sm">
+                        Daftar Paket Private
+                    </button>
+                </div>
+
+                <!-- Pricing Card 3: Offline Tatap Muka -->
+                <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200 flex flex-col justify-between hover:shadow-lg transition-shadow">
+                    <div>
+                        <div class="text-center pb-6 border-b border-gray-200">
+                            <h3 class="text-xl font-bold text-brand-dark mb-1">Paket Offline Tatap Muka</h3>
+                            <p class="text-xs text-gray-500 mb-4">Pembelajaran Langsung di Studio/Majelis</p>
+                            <div class="flex items-baseline justify-center gap-1">
+                                <span class="text-xs font-semibold text-gray-500">Rp</span>
+                                <span class="text-4xl font-extrabold text-brand-dark">450.000</span>
+                                <span class="text-xs text-gray-500">/program</span>
+                            </div>
+                        </div>
+
+                        <ul class="py-6 space-y-3 text-sm text-gray-600">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Tatap Muka di Ruang Kelas Nyaman</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Modul Kitab & Buku Catatan Fisik</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Praktek Membaca Langsung Depan Ustadz</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Snack & Fasilitas Ruangan AC</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                                <span>Sertifikat Syahadah Kelulusan</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button onclick="openModal('Paket Offline Tatap Muka')" class="w-full bg-white hover:bg-brand-dark hover:text-white text-brand-dark font-bold py-3.5 rounded-xl border border-gray-300 transition-all text-sm">
+                        Daftar Paket Offline
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Testimoni Peserta -->
+    <section class="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-0 left-0 w-full h-full bg-pattern opacity-5"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2">TESTIMONI ALUMNI</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Apa Kata Merek yang Telah Belajar di Arumatul Ulum?</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-800/80 p-8 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                            "Awalnya saya kira belajar Nahwu Shorof itu sangat sulit. Tapi metode pengajaran di Arumatul Ulum sangat terstruktur dan ringkas. Dalam 2 bulan saya sudah bisa memahami struktur kalimat kitab Safinah!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-700">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white text-sm">
+                            AD
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Ahmad Fauzi</h4>
+                            <p class="text-xs text-gray-400">Mahasiswa / Alumni Regular</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-800/80 p-8 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                            "Sangat merekomendasikan kelas Intensive Private. Pengajarnya sangat sabar membimbing dari nol sampai bisa baca kitab Fathul Qorib secara mandiri."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-700">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white text-sm">
+                            SN
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Siti Nurhaliza</h4>
+                            <p class="text-xs text-gray-400">Guru / Alumni Private</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-gray-800/80 p-8 rounded-2xl border border-gray-700 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">
+                            "Rekaman siaran ulangnya sangat membantu buat saya yang bekerja penuh waktu. Jadi kalau tidak sempat ikutan live, tetap bisa menyimak materi di malam hari."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-gray-700">
+                        <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white text-sm">
+                            MH
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Muhammad Hidayat</h4>
+                            <p class="text-xs text-gray-400">Karyawan Swasta</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ (Pertanyaan Populer) -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">FREQUENTLY ASKED QUESTIONS</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight">Pertanyaan yang Sering Diajukan</p>
+            </div>
+
+            <!-- FAQ Accordion List -->
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all">
+                    <button class="faq-btn w-full text-left p-6 font-bold text-brand-dark text-base sm:text-lg flex justify-between items-center bg-gray-50/50 hover:bg-gray-50">
+                        <span>Apakah pemula tanpa dasar bahasa Arab sama sekali bisa bergabung?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-600 text-sm leading-relaxed bg-gray-50/50">
+                        Tentu saja! Kami menyediakan program <strong>Bahasa Arab Dasar (Mubtadi')</strong> yang memang didesain dari tingkat nol. Anda akan dibimbing mengenal huruf, kosakata harian, hingga tata bahasa dasar secara runtut dan ramah bagi pemula.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all">
+                    <button class="faq-btn w-full text-left p-6 font-bold text-brand-dark text-base sm:text-lg flex justify-between items-center bg-gray-50/50 hover:bg-gray-50">
+                        <span>Bagaimana jika saya berhalangan hadir saat sesi kelas online?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-600 text-sm leading-relaxed bg-gray-50/50">
+                        Jangan khawatir. Setiap pertemuan kelas Zoom akan direkam secara utuh. Rekaman video dan bahan ajar PDF akan diunggah ke portal peserta sehingga dapat diakses kapan saja dan di mana saja.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all">
+                    <button class="faq-btn w-full text-left p-6 font-bold text-brand-dark text-base sm:text-lg flex justify-between items-center bg-gray-50/50 hover:bg-gray-50">
+                        <span>Fasilitas modul dan buku apa saja yang didapatkan?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-600 text-sm leading-relaxed bg-gray-50/50">
+                        Setiap peserta akan menerima e-Book modul eksklusif Arumatul Ulum. Bagi pendaftar Paket Intensive dan Offline Tatap Muka, buku cetak fisik akan dikirimkan langsung ke alamat Anda.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200 rounded-2xl overflow-hidden transition-all">
+                    <button class="faq-btn w-full text-left p-6 font-bold text-brand-dark text-base sm:text-lg flex justify-between items-center bg-gray-50/50 hover:bg-gray-50">
+                        <span>Berapa durasi waktu yang dibutuhkan sampai bisa membaca kitab gundul?</span>
+                        <i class="fa-solid fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer hidden p-6 pt-0 text-gray-600 text-sm leading-relaxed bg-gray-50/50">
+                        Rata-rata alumni kami dapat membaca kitab gundul tingkat dasar setelah menempuh 2 hingga 3 jenjang program (sekitar 3–5 bulan) dengan ketekunan latihan dan bimbingan rutin.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration / WhatsApp Contact Modal -->
+    <div id="modal" class="fixed inset-0 z-50 hidden bg-brand-dark/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative overflow-hidden animate-in fade-in zoom-in duration-200">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-5 right-5 text-gray-400 hover:text-brand-dark p-2 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="mb-6">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center text-xl mb-3">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-brand-dark">Formulir Pendaftaran Kursus</h3>
+                <p class="text-gray-600 text-sm">Isi formulir berikut untuk terhubung langsung dengan Admin pendaftaran via WhatsApp.</p>
+            </div>
+
+            <form id="registration-form" onsubmit="submitToWhatsApp(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Nama Lengkap</label>
+                    <input type="text" id="reg-name" required placeholder="Contoh: Ahmad Abdullah" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Nomor WhatsApp</label>
+                    <input type="tel" id="reg-phone" required placeholder="Contoh: 08123456789" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Pilihan Program / Paket</label>
+                    <select id="reg-program" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm bg-white">
+                        <option value="Bahasa Arab Dasar (Mubtadi')">Bahasa Arab Dasar (Mubtadi')</option>
+                        <option value="Pendalaman Nahwu & Shorof">Pendalaman Nahwu & Shorof</option>
+                        <option value="Praktik Baca Kitab (Tathbiq)">Praktik Baca Kitab (Tathbiq)</option>
+                        <option value="Paket Regular Online">Paket Regular Online</option>
+                        <option value="Paket Intensive Private">Paket Intensive Private</option>
+                        <option value="Paket Offline Tatap Muka">Paket Offline Tatap Muka</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold uppercase text-gray-700 mb-1">Kota / Domisili</label>
+                    <input type="text" id="reg-city" placeholder="Contoh: Jakarta / Surabaya" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm">
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2 text-sm mt-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Kirim & Daftar via WhatsApp</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-brand-dark text-white pt-16 pb-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-gray-800">
+                
+                <!-- Brand Info (Col 5) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-emerald-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                            <i class="fa-solid font-arabic text-2xl leading-none">ع</i>
+                        </div>
+                        <span class="text-2xl font-extrabold tracking-tight text-white">
+                            Arumatul <span class="text-emerald-400">Ulum</span>
+                        </span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                        Lembaga pendidikan spesialis kursus Bahasa Arab dan metode bimbingan membaca kitab kuning secara sistematis, praktis, dan terpercaya.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-emerald-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-emerald-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-youtube text-base"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-emerald-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-tiktok text-base"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-gray-800 hover:bg-emerald-600 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-whatsapp text-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Links (Col 3) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-emerald-400">Navigasi Halaman</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#beranda" class="hover:text-emerald-400 transition-colors">Beranda</a></li>
+                        <li><a href="#keunggulan" class="hover:text-emerald-400 transition-colors">Keunggulan Lembaga</a></li>
+                        <li><a href="#program" class="hover:text-emerald-400 transition-colors">Program Kursus</a></li>
+                        <li><a href="#kurikulum" class="hover:text-emerald-400 transition-colors">Kurikulum Belajar</a></li>
+                        <li><a href="#biaya" class="hover:text-emerald-400 transition-colors">Paket Biaya</a></li>
+                        <li><a href="#faq" class="hover:text-emerald-400 transition-colors">Pertanyaan Umun (FAQ)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Location Info (Col 4) -->
+                <div id="kontak" class="lg:col-span-4 space-y-3">
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-emerald-400">Kontak & Sekretariat</h4>
+                    <div class="space-y-3 text-sm text-gray-400">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-emerald-400 mt-1"></i>
+                            <span>Jl. Pendidikan Islam No. 45, Kompleks Majelis Ilmiah, Indonesia</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-emerald-400"></i>
+                            <span>+62 812-3456-7890</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-emerald-400"></i>
+                            <span>info@arumatululum.com</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+                <p>&copy; 2026 Arumatul Ulum. All Rights Reserved.</p>
+                <p class="mt-2 sm:mt-0">Lembaga Kursus Bahasa Arab &amp; Baca Kitab Kuning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactivity JavaScript -->
+    <script>
+        // Mobile Menu Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-2xl';
+            }
+        });
+
+        // Close Mobile Menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-2xl';
+            });
+        });
+
+        // FAQ Accordion Toggle
+        document.querySelectorAll('.faq-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const answer = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                
+                // Toggle current FAQ
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Registration Modal Handlers
+        function openModal(programName) {
+            const modal = document.getElementById('modal');
+            const select = document.getElementById('reg-program');
+            
+            if (programName && select) {
+                // Pre-select program if matched
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === programName) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Send Registration via WhatsApp Message Format
+        function submitToWhatsApp(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('reg-name').value.trim();
+            const phone = document.getElementById('reg-phone').value.trim();
+            const program = document.getElementById('reg-program').value;
+            const city = document.getElementById('reg-city').value.trim() || '-';
+
+            const whatsappNumber = "6281234567890"; // Target Admin WhatsApp
+            
+            const message = `*FORMULIR PENDAFTARAN KURSUS ARUMATUL ULUM*%0A%0A` +
+                `• *Nama Lengkap:* ${encodeURIComponent(name)}%0A` +
+                `• *No. WhatsApp:* ${encodeURIComponent(phone)}%0A` +
+                `• *Program/Paket:* ${encodeURIComponent(program)}%0A` +
+                `• *Kota Domisili:* ${encodeURIComponent(city)}%0A%0A` +
+                `Assalamu'alaikum Admin Arumatul Ulum, saya ingin mendaftar dan membutuhkan informasi tata cara pembayaran. Terima kasih.`;
+
+            const waUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+            
+            // Open WhatsApp link in new tab
+            window.open(waUrl, '_blank');
+            closeModal();
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('modal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
